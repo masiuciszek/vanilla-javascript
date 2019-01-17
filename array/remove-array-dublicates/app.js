@@ -29,3 +29,21 @@ console.log(b);
 let c = arr.filter((item,index) => arr.indexOf(item) === index);
 console.log(c);
 
+
+
+const dragons = ['fluffy','milik','argon','blade','blade','blade','flyffy'];
+
+let specialDragons = [...new Set(dragons)]
+
+console.log(specialDragons);
+
+
+let specialDragons2 = dragons.reduce((special,item) =>
+    special.includes(item) ? special : [...special,item], []);
+
+console.log(specialDragons2);
+
+let specialDragons3 = dragons.filter((item,index) => dragons.indexOf(item) === index);
+
+console.log(specialDragons3);
+
