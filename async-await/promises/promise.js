@@ -31,3 +31,22 @@ const promiseitAsynce = async () => {
 }
 
 promiseit().then(res => console.log(res))
+
+
+const whatTodo = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve('we dit it'), 700);
+    });
+}
+
+const whatNext = async () => {
+    const next  = await whatTodo();
+    return next +  ' maybe going out'
+}
+
+const whatafterthat = async () => {
+    const next = await whatNext();
+    return next + " maybe go grab a burger"
+}
+
+whatafterthat().then(res => setTimeout(() => console.log(res),5222))
