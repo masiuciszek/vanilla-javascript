@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>javascript</title>
+</head>
+<body>
+
+    <ul id="todo-app">
+        <li class="item">walk</li>
+        <li class="item">eat</li>
+        <li class="item">code</li>
+        <li class="item">sleep</li>
+    </ul>
+
+    <script>
+        let app = document.getElementById('todo-app');
+        let items = app.querySelectorAll('.item');
+
+        // for(let item of items) {
+        //     alert('you click ona item ' + item.innerHTML);
+        // }
+
+        app.addEventListener('click', (e) => {
+            if(e.target && e.target.nodeName === 'LI') {
+                let item = e.target
+                alert('yoo you clikced  ' + item.innerHTML)
+            }
+        })
+    </script>
+
+</body>
+</html>
