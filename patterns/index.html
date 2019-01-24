@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>java script patterns</title>
+    <style>
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fitt, minmax(174px, 1fr));
+        grid-auto-rows: 1fr;
+        grid-gap: 20px;
+        background: rgba(4,12,222,0.7);
+        grid-template-areas:
+        "header header header header"
+        "a a a a"
+        "c c d d"
+    }
+
+    .box{
+        background: rgba(200,212,111,0.4);
+        padding: 1rem;
+    }
+
+    .box1{
+        grid-area: header;
+    }
+    .box2{
+        grid-area: c;
+    }
+    </style>
+</head>
+<body>
+        <h1>Javascript sandbox</h1>
+
+        <div class="grid">
+            <div class="box box1">1</div>
+            <div class="box box2">1</div>
+            <div class="box box3">1</div>
+            <div class="box box4">1</div>
+            <div class="box box5">1</div>
+            <div class="box box6">1</div>
+            <div class="box box7">1</div>
+            <div class="box box8">1</div>
+            <div class="box box9">1</div>
+            <div class="box box10">1</div>
+            <div class="box box11">1</div>
+            <div class="box box12">1</div>
+            <div class="box box13">1</div>
+            <div class="box box14">1</div>
+            <div class="box box15">1</div>
+            <div class="box box16">1</div>
+            <div class="box box17">1</div>
+            <div class="box box18">1</div>
+            <div class="box box19">1</div>
+            <div class="box box20">1</div>
+        </div>
+
+<script src="factory.js"></script>
+</body>
+</html>
