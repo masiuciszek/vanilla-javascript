@@ -67,3 +67,9 @@ function reverseStr8(str) {
 }
 
 console.log(reverseStr8('hello'))
+
+let myarr = ['hello','apples','bananas'];
+let word = 'peter';
+
+console.log(word.split(','));
+console.log(myarr)

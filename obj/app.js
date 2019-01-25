@@ -145,3 +145,16 @@ function countOnline(obj) {
 }
 
 console.log(countOnline(users2));
+
+
+const snickers = {
+  name: 'snickers',
+  age: 4
+}
+
+function increaseAge(obj){
+  obj.age = obj.age+1;
+  return obj;
+}
+
+console.log(increaseAge(snickers))
