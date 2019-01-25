@@ -1,37 +1,4 @@
-function printAllPairs(n){
-    for(let i = 0; i < n; i++){
-        for(let j = 0; j < n; j++){
-            console.log(i, j);
-        }
-    }
-}
-// printAllPairs(5);
 
-// O(n)
-function countUpandDown(n){
-    console.log('going up!!');
-    for(let i = 0; i < n; i++){
-        console.log(i);
-    }
-    console.log('At the top and no we going down!!!');
-    for(let j = n -1; j >= 0; j--){
-        console.log(j);
-    }
-    console.log('Back down again');
-}
-
-// countUpandDown(10);
-
-
-function test(n){
-for (let i = 0; i < n; i++){
-    for(let j=0; j < n; j++){
-        console.log(i,j);
-    }
-  }
-}
-
-test(4);
 
 
 function reverse(str){
@@ -57,3 +24,12 @@ function countChar(str) {
 }
 
 // console.log(countChar('masiu boooooi'))
+
+
+const double = (arr) => {
+    return arr.map(val => val + val);
+}
+
+console.log(double([5,5,10]))
+console.log(double([5,5,40]));
+

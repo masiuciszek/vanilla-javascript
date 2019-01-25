@@ -50,18 +50,18 @@
 let a, b;
 
 [a ,b] = [100 , 200];
-console.log(a , b);
-const nums = [444,333,222,111,23233,232,222,22,111];
-const [num1,num2, ...restOfTheNums] = nums;
-console.log(restOfTheNums);
-const names = ['alesk', 'boris', 'tina'];
-const [name1, name2 ,name3] = names;
-console.log(name1);
+// console.log(a , b);
+// const nums = [444,333,222,111,23233,232,222,22,111];
+// const [num1,num2, ...restOfTheNums] = nums;
+// console.log(restOfTheNums);
+// const names = ['alesk', 'boris', 'tina'];
+// const [name1, name2 ,name3] = names;
+// console.log(name1);
 
 ({a,b,...rest} = {a:100, b:200, c:300, d:400, e:500});
 
-console.log(a,b);
-console.log(rest);
+// console.log(a,b);
+// console.log(rest);
 
 // parse array from func
 
@@ -71,7 +71,7 @@ function getPeople(){
 
 
 [person1,person2,person3] = getPeople();
-console.log(person1, person2, person3);
+// console.log(person1, person2, person3);
 
 
 const person = {
@@ -89,13 +89,55 @@ const person = {
     }
 }
 
-const { name } = person
-const { social } = person;
-console.log(name);
-console.log(social[0]);
-console.log(social[1]);
-const {address} = person;
-const { one:uno } = person.address.colors;
-console.log(address)
-console.log(address.area)
-console.log(uno)
+// const { name } = person
+// const { social } = person;
+// console.log(name);
+// console.log(social[0]);
+// console.log(social[1]);
+// const {address} = person;
+// const { one:uno } = person.address.colors;
+// console.log(address)
+// console.log(address.area)
+// console.log(uno)
+
+
+
+const personID = {
+    age: 18,
+    name: {
+        first: "Jennifer",
+        last: "Doe"
+    }
+}
+
+function getPersonFullName(person){
+    let first = person.name.first;
+    let second = person.name.last;
+    return first + ' ' + second;
+}
+
+function getPersonFullName2(person){
+    let name = {first, last} = person
+    return name;
+}
+
+
+// console.log(getPersonFullName(personID));
+
+
+const jennifer = {
+    age: 18,
+    first_name: "Jennifer",
+    last_name: "Doe"
+}
+
+function incrementAge(person){
+    let {age} = person;
+    age++;
+    return person + age
+}
+
+
+
+
+console.log(incrementAge(jennifer));

@@ -43,7 +43,7 @@ let foods = {
   }
 
   // change code below this line to test different cases:
-  console.log(checkInventory(foods2,"apples"));
+  // console.log(checkInventory(foods2,"apples"));
 
 
 
@@ -77,7 +77,7 @@ let foods = {
     // change code above this line
   }
 
-  console.log(isEveryoneHere(users));
+  // console.log(isEveryoneHere(users));
 
   const apple = {
     color: 'Red',
@@ -88,7 +88,7 @@ let foods = {
 
   for (const prop in apple) {
     const value = apple[prop];
-    console.log(value, prop);
+    // console.log(value, prop);
   }
 
 
@@ -109,4 +109,39 @@ let foods = {
 const {line2} = user.personalInfo.address
 
 
-console.log(line2);
+
+// console.log(line2);
+
+
+let users2 = {
+  Alan: {
+    age: 27,
+    online: false
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: false
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+
+
+function countOnline(obj) {
+  let result = 0;
+  for(char in obj) {
+    if(obj[char].online === true) {
+      result += 1;
+    }
+  }
+  return result
+}
+
+console.log(countOnline(users2));
