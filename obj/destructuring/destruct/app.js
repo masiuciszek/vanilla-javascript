@@ -1,9 +1,50 @@
-function juventus(stadium,fans,players){}
-juventus('juve arena', 'ultras juve', 32);
-// here we have to have the arguments in the same order
+const getTotalOfGrades = student => {
+
+    const {grades} = student;
+    let total = 0;
+    for (let i = 0 ; i < grades.length; i++) {
+        total+= grades[i];
+    }
+    return total;
+}
 
 
-function legiaWarszawa(stadium,fans,players){}
-console.log(legiaWarszawa({ fans: 'zyleta', stadium: 'pepsi arena', players:31 }));
+
+const getTotalOfGrades2 = student => {
+
+    let gradesOfStudent = student.grades;
+    return gradesOfStudent.reduce((a,b) => a + b , 0);
+
+}
+
+const student = {
+    name: "Jennifer",
+    grades: [10, 6, 14, 3, 18],
+    age: 17
+};
 
 
+console.log(getTotalOfGrades(student));
+console.log(getTotalOfGrades2(student));
+
+
+
+const getFullName = person => {
+    return ;
+}
+
+//sample usage
+const person = {
+    first_name: "Jennifer",
+    grades: [10, 6, 14, 3, 18],
+    age: 17,
+    parents: {
+        father: {
+            last_name: "Doe"
+        },
+        mother: {
+            last_name: "Doe"
+        }
+    }
+};
+console.log(getFullName(person));

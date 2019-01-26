@@ -141,3 +141,33 @@ function incrementAge(person){
 
 
 console.log(incrementAge(jennifer));
+
+
+const getLatLng = location => {
+    const {lat, lng} = location
+
+    return `The latitude is ${lat} and the longitude is ${lng}`;
+}
+
+
+const location = {
+    lat: 24.235235,
+    lng: 2.5734,
+};
+console.log(getLatLng(location));
+
+
+const getLatLngElevation = location => {
+
+    const {lat, lng , elevation =0 } = location;
+
+    return `The latitude is ${lat}, the longitude is ${lng} and the elevation is ${elevation} meters`;
+}
+
+
+const location = {
+    lat: 24.235235,
+    lng: 2.5734,
+};
+console.log(getLatLngElevation(location));
+
