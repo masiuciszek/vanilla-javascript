@@ -144,7 +144,7 @@ function countOnline(obj) {
   return result
 }
 
-console.log(countOnline(users2));
+// console.log(countOnline(users2));
 
 
 const snickers = {
@@ -157,4 +157,42 @@ function increaseAge(obj){
   return obj;
 }
 
-console.log(increaseAge(snickers))
+// console.log(increaseAge(snickers))
+
+
+const getFullName = person => {
+  const {first_name} = person
+  const {last_name} = person.parents.father;
+  const {last_name:mom} = person.parents.mother
+  return `${first_name} ${last_name} ${mom}`
+}
+
+
+const person = {
+  first_name: "Jennifer",
+  grades: [10, 6, 14, 3, 18],
+  age: 17,
+  parents: {
+      father: {
+          last_name: "Doe"
+      },
+      mother: {
+          last_name: "Doe"
+      }
+  }
+};
+
+
+const getNumberOfTestsTaken = grades => {
+  return grades.length
+};
+
+//sample usage
+const grades = [{
+  date: "2018-12-13",
+  grade: 14
+}, {
+  date: "2018-12-15",
+  grade: 18
+}]
+console.log(getNumberOfTestsTaken(grades));
