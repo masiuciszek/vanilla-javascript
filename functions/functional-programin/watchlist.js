@@ -116,7 +116,57 @@ var watchList = [
 // let rating = watchList.map((movies) => ({'title': movies['Title'], "rating":movies['imdbRating']}))
 // console.log(rating);
 
-let rating2 = watchList.map((movie) => ({'movie': movie['Title'], "rating":movie['imdbRating']}))
+// let rating = watchList.map( (item) => ({"title":item["Title"], "rating":item["imdbRating"]}) );
+
+let rating = watchList.map((val) => ({'val':val['Title'], 'rating':val['imdbRating']}));
+// console.log(rating);
+
+let ratings = [];
+
+for(let i = 0; i < watchList.length; i++) {
+   ratings.push({title:watchList[i]['Country'], 'rating':watchList[i]['imdbVotes']});
+}
+
+// console.log(ratings);
+
+
+
+let ratings2 = []
+for(let i = 0 ; i < watchList.length; i++) {
+   ratings2.push({title:watchList[i]['Title'], year:watchList[i]['Year'], 'type':watchList[i]['Type'], genre:watchList[i]['Genre']});
+}
+// console.log(ratings2);
+
+let functionalRating = watchList.map((movie) => ({ 'movie':movie['Title'], 'year':movie['Year'], 'language':movie['Language']  }))
+// console.log(functionalRating);
+
+let functionalRating2 = watchList.map((x) => ({'movie':x['Title'], 'runtime':x['Runtime'], 'rating':x['imdbRating'], 'country':x['Country']  }));
+// console.log(functionalRating2);
+
+
+let functionalRating3 = watchList.map((movie) => ({ 'title':movie['Title'], 'country':movie['Country'], 'response':movie['Response']  }))
+// console.log(functionalRating3);
+
+let masiusRatingsArr = [];
+for(let i = 0; i < watchList.length; i++) {
+   masiusRatingsArr.push('title',watchList[i]['Title'], 'rating',watchList[i]['Rated']);
+}
+// console.log(masiusRatingsArr);
+
+
+const sortMovieList = (movies) => {
+   let newMovieList = [];
+   for(let i = 0; i < movies.length; i++) {
+      newMovieList.push({'title':movies[i]['Title'], 'year':movies[i]['Year']})
+   }
+   return newMovieList;
+}
+
+console.log(sortMovieList(watchList));
+
+
+
+
 
 // var rating = [];
 // for(var i=0; i < watchList.length; i++){
@@ -124,7 +174,10 @@ let rating2 = watchList.map((movie) => ({'movie': movie['Title'], "rating":movie
 // }
 
 // console.log(rating);
-
+// let rating = [];
+// for(let i=0; i < watchList.length; i++){
+//   rating.push({title: watchList[i]["Title"],  rating: watchList[i]["imdbRating"]});
+// }
 
 
 // The watchList array holds objects with information on several movies. Use map to pull the title and rating from watchList and save the new array in the rating variable. The code in the editor currently uses a for loop to do this, replace the loop functionality with your map expression
