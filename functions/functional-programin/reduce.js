@@ -1,5 +1,4 @@
-
-let watchList = [
+const watchList = [
     {
       "Title": "Inception",
       "Year": "2010",
@@ -112,25 +111,15 @@ let watchList = [
    }
 ];
 
+'Christopher Nolan'
+// The averageRating should equal 8.675.
+
+let averageRating = watchList.filter(x => x.Director === 'Christopher Nolan').map(x => parseInt(x.imdbRating)).reduce((a,b) => a + b) / watchList.filter(a => a.Director === 'Christopher Nolan').length
 
 
-let filteredList = watchList.map((val) => ({'title':val['Title'], 'rating':val['imdbRating']}))
-    .filter((val) => val.rating > 8)
+let averageRating2 = watchList.filter(x => x.Title === 'Avatar').map(x => parseInt(x.Year && x.Runtime)).reduce((a,b) => a + b) / watchList.filter(x => x.Title === 'Avatar').length
 
-let filteredList2 = watchList.map((x) => ({'title':x['Title'], 'year':x['Year'],'type':x['Type'] }))
-    .filter((year) => year.year > 2005);
 
-// console.log(filteredList);
-// console.log(filteredList2);
 
-const filteredListFunc = (val) => {
-    let newList = [];
-    for(let i = 0; i < val.length; i++) {
-        newList.push({'title':val[i]['Title'], 'year':val[i]['Year']})
-        if(val[i]['Year'] > 2000) {
-            val[i]++
-            return newList;
-        }
-    }
-}
-console.log(filteredListFunc(watchList));
+// console.log(averageRating);
+//  console.log(averageRating2);
