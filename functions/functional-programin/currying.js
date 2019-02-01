@@ -8,3 +8,4 @@ function add(x) {
 
   }
   console.log(add(10)(20)(30));
+

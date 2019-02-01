@@ -187,6 +187,34 @@ const getNumberOfTestsTaken = grades => {
   return grades.length
 };
 
+const sumOfGrades = (grades) => {
+  let grade1 = grades[0]['grade'];
+  let grade2 = grades[1]['grade'];
+
+  return grade1 + grade2;
+}
+const sumOfGrades2 = (grades) => {
+  let total = 0;
+  for(let i = 0; i < grades.length; i++) {
+    total += grades[i].grade;
+  }
+  return total;
+
+}
+
+
+const difference = (grades) => {
+  return grades.reduce((a,b) => b.grade + a.grade) / grades.length;
+}
+const getAverageAge = users => {
+  let total = 0;
+  for(let i = 0; i < users.length; i++) {
+      total += users[i].age / users.length
+  }
+  return total;
+
+};
+
 //sample usage
 const grades = [{
   date: "2018-12-13",
@@ -195,4 +223,18 @@ const grades = [{
   date: "2018-12-15",
   grade: 18
 }]
-console.log(getNumberOfTestsTaken(grades));
+// console.log(getNumberOfTestsTaken(grades));
+
+//sample usage
+const users3 = [{
+  joined_on: "2018-12-13",
+  age: 14
+}, {
+  joined_on: "2018-12-15",
+  age: 18
+}]
+console.log(getAverageAge(users3));
+
+// console.log(sumOfGrades(grades));
+// console.log(sumOfGrades2(grades));
+console.log(difference(grades));
