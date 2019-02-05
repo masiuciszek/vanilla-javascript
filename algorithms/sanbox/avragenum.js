@@ -1,8 +1,14 @@
-const getAverageAge = users => {
 
-   for(let i = 0; i < users.length; i++) {
-       return users[0].age + users[1].age / users[i].age
-   }
+const getAverageAge2 = users => {
+    let avrageAge = users.reduce((a,b) => a.age + b.age) / users.length;
+    return avrageAge;
+};
+const getAverageAge3 = users => {
+    let total = 0;
+      users.forEach(user => {
+       return  total += user.age;
+    });
+    return total / users.length;
 };
 
 const users = [{
@@ -13,4 +19,6 @@ const users = [{
     age: 18
 }]
 console.log(getAverageAge(users));
+console.log(getAverageAge2(users));
+console.log(getAverageAge3(users));
 

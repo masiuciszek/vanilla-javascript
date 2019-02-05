@@ -13,7 +13,7 @@ let plate = veggies.concat(fruits, 'mangos');
 
 //ES6
 let sandwich = [...veggies, ...spreads];
-console.log('sandwich : ',sandwich);
+// console.log('sandwich : ',sandwich);
 
 
 function mixedNumbers(arr) {
@@ -25,7 +25,7 @@ function mixedNumbers(arr) {
   }
 
   // do not change code below this line
-  console.log(mixedNumbers(['IV', 5, 'six']));
+  // console.log(mixedNumbers(['IV', 5, 'six']));
 
 
   function popShif(arr){
@@ -34,4 +34,11 @@ function mixedNumbers(arr) {
       return[shifting,poping]
   }
 
-  console.log(popShif(['hello','my', 'friend', 'how are you?']))
+  // console.log(popShif(['hello','my', 'friend', 'how are you?']));
+
+  const concatTwoArrays = (first_half_2018, second_half_2018) => {
+    return first_half_2018.concat(second_half_2018);
+}
+
+
+console.log(concatTwoArrays(["Calculator", "Whatsapp"], ["Chrome", "Firefox"]));
