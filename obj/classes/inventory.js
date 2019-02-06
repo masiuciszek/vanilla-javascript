@@ -7,9 +7,9 @@ class Inventory{
      this.items.push(item);
      return this.items;
     }
-    getItems(item){
-     this.items[item];
-     return this.items[item]
+    getItems(){
+
+     return this.items
 
     }
     getCount(){
@@ -24,7 +24,7 @@ class Inventory{
     }
 
     humanReadableFormat(){
-        return `this is our list with ${this.items}`;
+        return `This is the items in the list${this.items.join(', ')}`;
     }
 
     sort(){
@@ -34,6 +34,21 @@ class Inventory{
 }
 
 const myInventory = new Inventory();
+
+
+// console.log(myInventory);
+// console.log(myInventory.addItem('apples'));
+// console.log(myInventory.addItem('carrots'));
+// console.log(myInventory.addItem('avocados'));
+// console.log(myInventory.getItems([0]));
+// console.log(myInventory.getItems([1]));
+// console.log(myInventory.getCount());
+// console.log(myInventory.exists('apples'));
+// console.log(myInventory.exists('oranges'));
+// console.log(myInventory.sort());
+// console.log(myInventory.humanReadableFormat());
+
+// const myInventory = new Inventory();
 
 
 console.log(myInventory);
@@ -47,6 +62,5 @@ console.log(myInventory.exists('apples'));
 console.log(myInventory.exists('oranges'));
 console.log(myInventory.sort());
 console.log(myInventory.humanReadableFormat());
-
 
 
