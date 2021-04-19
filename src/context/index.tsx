@@ -1,10 +1,9 @@
-import { createContext, FC, Reducer, useContext, useReducer } from "react";
+import React, { createContext, FC, Reducer, useContext, useReducer } from "react";
 
 export const PER_PAGE = 10;
 
-type CurrentState = "idle" | "pending" | "resolved" | "rejected";
 interface State {
-  currentState: CurrentState;
+  isLoading: boolean;
   hasMore: boolean;
   data: number[];
   after: number;
@@ -15,11 +14,11 @@ type Dispatch = (action: Action) => void;
 const reducer: Reducer<State, Action> = (state: State, action: Action) => {
   switch (action.type) {
     case "START":
-      return { ...state, currentState: "pending" };
+      return { ...state, isLoading: true };
     case "LOADED":
       return {
         ...state,
-        currentState: "resolved",
+        isLoading: false,
         date: [...state.data, ...action.payload],
         hasMore: state.data.length === PER_PAGE,
         after: state.after + state.data.length,
@@ -35,7 +34,7 @@ const Dispatch = createContext<Dispatch | undefined>(undefined);
 
 const ScrollProvider: FC = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {
-    currentState: "idle",
+    isLoading: false,
     hasMore: true,
     data: [],
     after: 0,

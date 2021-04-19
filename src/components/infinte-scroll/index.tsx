@@ -1,25 +1,76 @@
-import React, { useRef } from "react";
-import { PER_PAGE, useScrollDispatch, useScrollState } from "../../context";
+import React, { useEffect, useRef, useState } from "react";
+import { useScrollDispatch, useScrollState } from "../../context";
 
 const sleep = (ms: number) => new Promise(res => setTimeout(res, ms));
+const dummyList = new Array(50).fill(0).map((val, i) => val + 1);
 
 const InfiniteScroll = () => {
-  const { data, currentState, hasMore, after } = useScrollState();
-  const dispatch = useScrollDispatch();
-  const dummyList = new Array(50).fill(0).map((val, i) => val + 1);
+  const [data, setData] = useState<any[]>(dummyList.slice(0, 10));
+  const [element, setElement] = useState<null | Element>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(false);
+
   const load = (): void => {
-    dispatch({ type: "START" });
+    setIsLoading(true);
     setTimeout(() => {
-      const data = dummyList.slice(after, after + PER_PAGE);
-      dispatch({ type: "LOADED", payload: data });
-    }, 300);
+      setData(p => {
+        const prevLength = p.length;
+        const newData = dummyList.slice(prevLength, prevLength + 10);
+
+        return [...p, newData];
+      });
+      setIsLoading(false);
+    }, 5000);
   };
 
-  const observer = useRef(new IntersectionObserver(entries => {}, { threshold: 1 }));
+  useEffect(() => {
+    if (data.length < dummyList.length) {
+      setHasMore(true);
+    }
+  }, [data.length]);
+
+  const observer = useRef(
+    new IntersectionObserver(
+      entries => {
+        const first = entries[0];
+        console.log(entries, first);
+        if (first.isIntersecting) {
+          load();
+        }
+      },
+      { threshold: 1 }
+    )
+  );
+
+  useEffect(() => {
+    const currenElement = element;
+    const currentObserver = observer.current;
+
+    if (currenElement) {
+      currentObserver.observe(currenElement);
+    }
+
+    return () => {
+      if (currenElement) {
+        currentObserver.unobserve(currenElement);
+      }
+    };
+  }, [element]);
 
   return (
     <div>
-      <h1>Scroll</h1>
+      <ul>
+        {data.length > 0 &&
+          data.map(d => (
+            <li key={d} style={{ background: "steelblue", width: 200, height: 200 }}>
+              {d}
+            </li>
+          ))}
+
+        {isLoading && <li>Loading...</li>}
+
+        {!isLoading && hasMore && <li ref={setElement} style={{ background: "transparent" }}></li>}
+      </ul>
     </div>
   );
 };
