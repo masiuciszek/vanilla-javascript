@@ -1,10 +1,11 @@
 import React from "react";
 import ScrollProvider from "../context";
+import InfiniteScroll from "./infinte-scroll";
 
 const App = () => {
   return (
     <ScrollProvider>
-      <h1>hello </h1>
+      <InfiniteScroll />
     </ScrollProvider>
   );
 };

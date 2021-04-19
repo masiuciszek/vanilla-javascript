@@ -1,15 +1,15 @@
 import { createContext, FC, Reducer, useContext, useReducer } from "react";
 
-const PER_PAGE = 10;
+export const PER_PAGE = 10;
 
 type CurrentState = "idle" | "pending" | "resolved" | "rejected";
 interface State {
   currentState: CurrentState;
   hasMore: boolean;
-  data: any[];
+  data: number[];
   after: number;
 }
-type Action = { type: "START" } | { type: "LOADED"; payload: any };
+type Action = { type: "START" } | { type: "LOADED"; payload: number[] };
 type Dispatch = (action: Action) => void;
 
 const reducer: Reducer<State, Action> = (state: State, action: Action) => {
@@ -22,6 +22,7 @@ const reducer: Reducer<State, Action> = (state: State, action: Action) => {
         currentState: "resolved",
         date: [...state.data, ...action.payload],
         hasMore: state.data.length === PER_PAGE,
+        after: state.after + state.data.length,
       };
 
     default:
