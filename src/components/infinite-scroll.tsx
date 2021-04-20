@@ -8,10 +8,18 @@ const markdown = `.
   The intersection observer will give us back \`entries\` which is an array with
   the elements that you want to observe, in this case we just want to target the \`target element\` 
 
-  To not keep the load function in the closure, we
+  To not keep the load function outside the closure, we need to store it inside the ref to
+  always have access to the previous
+  function value 
   \`\`\`tsx
   loadRef.current = loadMore;
   \`\`\`
+
+  Instead of listen on the scroll event we can just have a target to aim for,
+  in this case \`Intersection observer ref\`
+  as soon the target gets visible we will load another ten boxes.
+
+  
 `;
 
 const Wrapper = styled.section`
@@ -32,7 +40,7 @@ const MarkDownWrapper = styled.div`
   height: 100vh;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 1rem 2rem;
   border-right: 2px solid #000;
 `;
 
@@ -52,24 +60,25 @@ const Li = styled.li`
   box-shadow: 1px 3px 2px 3px #ccc;
 `;
 
-const list: number[] = Array.from({ length: 50 }, (_, i) => i + 1);
+const sleep = (ms: number) => new Promise(res => setTimeout(res, ms));
+
+const list: number[] = Array.from({ length: 100 }, (_, i) => i + 1);
 const InfiniteScroll = () => {
   const [data, setData] = useState([...list.slice(0, 10)]);
   const [element, setElement] = useState<null | Element>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [hasMore, setHasMore] = useState(list.length > 10);
 
-  const loadMore = useCallback(() => {
+  const loadMore = useCallback(async () => {
     const currentLength = data.length;
     const moreData = currentLength < list.length;
-
     const nextEdges = moreData ? list.slice(currentLength, currentLength * 2) : [];
     setHasMore(moreData);
     setIsLoading(true);
-    setTimeout(() => {
-      setData([...data, ...nextEdges]);
-      setIsLoading(false);
-    }, 3000);
+
+    await sleep(1200);
+    setData([...data, ...nextEdges]);
+    setIsLoading(false);
   }, [data]);
 
   const loadRef = useRef(loadMore);

@@ -1,11 +1,11 @@
 import "./App.css";
-import InfiniteScroll from "./components/infinite-scroll";
+import Routes from "./routes";
 
 function App() {
   return (
-    <main>
-      <InfiniteScroll />
-    </main>
+    <>
+      <Routes />
+    </>
   );
 }
 
